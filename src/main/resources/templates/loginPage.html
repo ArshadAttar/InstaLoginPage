@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 500px;
+    height:500px;
+    padding-top:40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #3897f0;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+   <center> <h2>Instagram Registration from</h2></center>
+    <hr>
+    <br>
+    <form th:action="@{/saveDataLink}" method="post" th:object="${instaObject}">
+        <div class="form-group">
+            <label>Enter Your Name</label>
+            <input type="text"  th:field="*{accountHolderName}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Enter Username</label>
+            <input type="text"  th:field="*{userName}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Enter Email</label>
+            <input type="email"  th:field="*{email}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Enter Contact number</label>
+            <input type="tel" th:field="*{contact}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Enter Password</label>
+            <input type="password"  th:field="*{password}" required>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>
